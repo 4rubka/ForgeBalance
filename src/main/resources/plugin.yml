@@ -1,0 +1,22 @@
+name: ForgeBalance
+version: 1.0.0
+main: com.forgebalance.ForgeBalancePlugin
+author: _4rubka_
+description: SMP PvP balance and cooldown control plugin for Paper/Spigot
+api-version: 1.21
+
+commands:
+  smpstart:
+    description: Start the SMP with grace period
+    permission: forgebalance.admin
+  forgebalance:
+    description: ForgeBalance admin command and control menu
+    permission: forgebalance.admin
+
+permissions:
+  forgebalance.admin:
+    description: Admin permission for ForgeBalance
+    default: op
+  forgebalance.bypass:
+    description: Bypass restrictions
+    default: false

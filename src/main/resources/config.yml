@@ -1,0 +1,464 @@
+# ForgeBalance Configuration
+# Target: Paper/Spigot 1.21.10 - 1.21.11
+# Author: _4rubka_
+#
+# This file contains a large set of server-balance switches.
+# Most booleans can be toggled from /forgebalance GUI pages.
+
+# ==================== CORE SETTINGS ====================
+settings:
+  # Master switch for all plugin logic.
+  enabled: true
+  # Extra debug output in console.
+  debug: false
+  # Give admin permission automatic bypass.
+  admin-has-bypass: false
+  # Log module states on startup.
+  log-settings-on-startup: true
+  # Save config on each GUI toggle click.
+  save-on-toggle: true
+
+# ==================== MENU SETTINGS ====================
+menu:
+  # Allow opening GUI from /forgebalance without args.
+  enabled: true
+  # Rows in admin menu inventory (fixed to 6 currently).
+  rows: 6
+  # Show config path in menu item lore.
+  show-path-in-lore: true
+  # Show default state in menu item lore.
+  show-default-in-lore: true
+  # Send chat feedback after toggle.
+  send-toggle-message: true
+  # Keep menu open after toggle.
+  keep-open-after-toggle: true
+
+# ==================== GLOBAL PVP SETTINGS ====================
+pvp:
+  # Global PvP on/off switch.
+  enabled: true
+  # Broadcast when PvP state changes via command/menu.
+  announce-toggle: true
+  # Allow admins to bypass global PvP off.
+  admin-bypass-global-off: true
+  # Disable damage between teammates (if external team plugin tags metadata).
+  disable-team-friendly-fire: false
+  # Disable PvP in spawn radius.
+  spawn-protection-enabled: false
+  # Spawn protection radius in blocks.
+  spawn-protection-radius: 64
+
+# ==================== DAMAGE MODIFICATION ====================
+damage:
+  # Enable damage balancing module.
+  enabled: true
+  # Enable global multiplier support.
+  use-global-multiplier: true
+  # Enable PvP multiplier support.
+  use-pvp-multiplier: true
+  # Enable PvE multiplier support.
+  use-pve-multiplier: true
+  # Enable custom material damage table.
+  enable-custom-damage-table: true
+  # Multiplier applied globally (1.0 = vanilla).
+  global-multiplier: 1.0
+  # Multiplier applied in player-vs-player combat.
+  pvp-multiplier: 1.0
+  # Multiplier applied in player-vs-entity combat.
+  pve-multiplier: 1.0
+  # Optional anti-meta controls.
+  disable-criticals-pvp: false
+  reduce-axe-shield-break: false
+  disable-sweeping-pvp: false
+  # Custom weapon base damage values.
+  custom-damage:
+    MACE: 9.0
+    DIAMOND_SWORD: 7.0
+    NETHERITE_SWORD: 7.5
+    IRON_SWORD: 6.0
+    GOLD_SWORD: 5.0
+    WOODEN_SWORD: 4.0
+    TRIDENT: 8.0
+    DIAMOND_AXE: 8.5
+
+# ==================== RITUALS ====================
+rituals:
+  # Enable ritual interaction hooks.
+  enabled: true
+  # Enable default lodestone + warden-heart ritual.
+  default-warden-ritual: true
+  # Consume ritual item on success.
+  consume-item: true
+  # Ritual feedback effects.
+  play-particles: true
+  play-sounds: true
+  # Safety options.
+  block-ritual-in-combat: false
+  block-ritual-during-grace: false
+
+# ==================== COOLDOWNS ====================
+cooldowns:
+  # Master cooldown module.
+  enabled: true
+  # Core cooldown times in ticks (20 ticks = 1s).
+  mace-cooldown: 100
+  shield-cooldown: 100
+  wind-charge-cooldown: 20
+  riptide-cooldown: 100
+  gap-cooldown: 100
+  pearl-cooldown: 80
+  crystal-cooldown: 60
+  anchor-cooldown: 80
+  totem-cooldown: 200
+  trident-throw-cooldown: 40
+  bow-shot-cooldown: 10
+  crossbow-shot-cooldown: 20
+  # Toggle each cooldown type independently.
+  mace-cooldown-enabled: true
+  shield-cooldown-enabled: true
+  wind-charge-cooldown-enabled: true
+  riptide-cooldown-enabled: true
+  gap-cooldown-enabled: true
+  pearl-cooldown-enabled: false
+  crystal-cooldown-enabled: false
+  anchor-cooldown-enabled: false
+  totem-cooldown-enabled: false
+  trident-throw-cooldown-enabled: false
+  bow-shot-cooldown-enabled: false
+  crossbow-shot-cooldown-enabled: false
+  shield-bash-cooldown-enabled: false
+  sword-swap-cooldown-enabled: false
+  # Message and sync behavior.
+  show-messages: true
+  broadcast-major-cooldowns: false
+  sync-with-vanilla-cooldown-bar: true
+  pause-during-grace: false
+  reset-on-death: true
+
+# ==================== ENCHANTMENT RULES ====================
+enchantments:
+  # Enable enchant restrictions.
+  enabled: true
+  # Main PvP limits.
+  protection-limit: 4
+  sharpness-limit: 5
+  # Additional common limits.
+  efficiency-limit: 5
+  unbreaking-limit: 3
+  fortune-limit: 3
+  looting-limit: 3
+  power-limit: 5
+  punch-limit: 2
+  flame-limit: 1
+  infinity-limit: 1
+  mending-limit: 1
+  breach-limit: 4
+  density-limit: 5
+  # Breach policy requested for PvP servers.
+  block-breach-swapping: true
+  # Extra sanitation options.
+  disable-illegal-anvils: false
+  normalize-loot-enchants: false
+  limit-protection-on-join: true
+  limit-sharpness-on-join: true
+  # Explicit banned enchants (by key, lowercase).
+  banned-enchantments:
+    - "breach"
+
+# ==================== EFFECT RULES ====================
+effects:
+  # Enable effect bans.
+  enabled: true
+  # Feature toggles for common banned effects.
+  block-strength: true
+  block-speed: false
+  block-resistance: true
+  block-fire-resistance: false
+  block-regeneration: false
+  block-jump-boost: false
+  # Notify when blocked.
+  show-block-message: true
+  # List-based ban system.
+  banned-effects:
+    - SPEED
+    - STRENGTH
+    - RESISTANCE
+    - FIRE_RESISTANCE
+    - REGENERATION
+  # Effects allowed even when present in banned list.
+  bypass-effects:
+    - INVISIBILITY
+
+# ==================== ITEM RULES / BANS ====================
+items:
+  # Enable item restrictions.
+  enabled: true
+  # Specific boolean bans.
+  ban-tipped-arrows: true
+  ban-anchors: true
+  ban-bed-bombing: true
+  ban-tnt-minecarts: true
+  ban-netherite: true
+  ban-killing-villagers: false
+  ban-crystals: false
+  ban-pearls-global: false
+  ban-elytra-item: false
+  ban-crossbows: false
+  ban-tridents: false
+  ban-totems: false
+  ban-fireworks-in-combat: false
+  ban-shulkers-in-combat: false
+  # One-mace policy.
+  allow-one-mace: true
+  # Coarse material list for item block checks.
+  banned-items:
+    - TIPPED_ARROW
+    - MACE
+    - RESPAWN_ANCHOR
+    - TNT_MINECART
+    - NETHERITE_HELMET
+    - NETHERITE_CHESTPLATE
+    - NETHERITE_LEGGINGS
+    - NETHERITE_BOOTS
+    - NETHERITE_SWORD
+    - NETHERITE_PICKAXE
+    - NETHERITE_AXE
+    - NETHERITE_SHOVEL
+    - NETHERITE_HOE
+  # Item-limiter submodule.
+  item-limiter:
+    enabled: false
+    block-overstack: false
+    block-shulker-nests: false
+    max-stack-override: 64
+    notify-player: true
+
+# ==================== COMBAT RESTRICTIONS ====================
+combat:
+  # Enable combat tag and restrictions.
+  enabled: true
+  # Combat tag duration in seconds.
+  combat-tag-time: 10
+  # Core restrictions.
+  anti-restock: true
+  anti-elytra: true
+  anti-pearl: true
+  # Requested PvP rule options.
+  no-naked-killing: false
+  no-afk-killing: false
+  ban-crystals: false
+  ban-pearls: false
+  # Escape prevention options.
+  prevent-chorus-fruit: false
+  prevent-home-teleport: false
+  prevent-ender-chest-open: false
+  prevent-cross-dimension-escape: false
+  prevent-wind-charge: false
+  prevent-riptide-escape: false
+  # Combat-log policy.
+  combat-log-punish: false
+  combat-log-kill-instantly: false
+  combat-log-punish-message: "You were punished for combat logging."
+  # Misc anti-abuse toggles.
+  disable-shield-swap: false
+  disable-gapple-while-tagged: false
+  disable-totem-in-offhand: false
+  broadcast-tag-status: false
+  track-hit-statistics: false
+
+# ==================== INVISIBILITY QOL ====================
+invisibility:
+  # Enable invisibility QoL behavior.
+  enabled: true
+  # Hide killer identity if killer is invisible.
+  hide-killer-name: true
+  # Replace invisible chat name with anonymous alias.
+  anonymous-invis: true
+  # Custom alias for invisible players.
+  anonymous-name: "Unknown"
+  # Hide join/quit names when invisible.
+  hide-join-quit-while-invis: false
+  # Block tab-list reveal for invisible players.
+  hide-tab-identity-while-invis: false
+
+# ==================== WARDEN HEART ====================
+warden:
+  # Enable Warden heart drop logic.
+  enabled: true
+  # Chance 0.0 - 1.0.
+  heart-drop-chance: 1.0
+  # Use this material for heart item body.
+  custom-heart-item: "HEART_OF_THE_SEA"
+  # Optional extra drops and visuals.
+  broadcast-heart-drop: false
+  glowing-heart-item: false
+  # Protection from accidental despawn.
+  prevent-heart-despawn: true
+
+# ==================== SMP START / GRACE ====================
+smp-start:
+  # Enable /smpstart command system.
+  enabled: true
+  # Grace period duration (seconds).
+  grace-period: 300
+  # During grace, disable PvP damage.
+  disable-pvp: true
+  # During grace, block block-breaking.
+  disable-block-break: true
+  # During grace, block mob/entity damage by players.
+  disable-entity-damage: true
+  # Show countdown broadcasts.
+  show-countdown: true
+  # Countdown frequency in seconds.
+  countdown-step-seconds: 60
+  # Show start and end broadcasts.
+  announce-start-end: true
+
+# ==================== ONE-CRAFT LIMITS ====================
+one-craft:
+  # Enable one-craft limiter.
+  enabled: true
+  # Count crafts per-player only.
+  per-player: true
+  # Count shift-click batch crafting.
+  count-shift-click: true
+  # Notify players when craft is blocked.
+  send-message: true
+  limited-crafts:
+    ENCHANTED_GOLDEN_APPLE: 2
+    CONDUIT: 1
+    BEACON: 1
+
+# ==================== MACE MODULE ====================
+mace:
+  # Enable mace-specific logic.
+  enabled: true
+  # Ban mace usage.
+  ban-mace: true
+  # Mace can stun shield on hit.
+  stun-shield: true
+  # Shield stun duration in ticks.
+  shield-stun-duration: 20
+  # Optional modifier flags.
+  reduce-smash-damage: false
+  cancel-smash-fall-reset: false
+
+# ==================== CUSTOM RECIPES ====================
+recipes:
+  # Enable custom recipe registration.
+  enabled: true
+  # Remove old versions on startup/reload.
+  clear-previous-recipes: true
+  # Warden-heart recipe.
+  warden-heart-recipe:
+    enabled: true
+    result-material: "NETHER_STAR"
+    shape:
+      - "GGG"
+      - "GWH"
+      - "GGG"
+    ingredients:
+      G: "GOLD_INGOT"
+      W: "WARDEN_HEART"
+      H: "HONEYCOMB"
+
+# ==================== UTILITY MODULES ====================
+utility:
+  # One-player-sleep behavior.
+  one-player-sleep:
+    enabled: true
+    skip-thunder: true
+    require-night-time: true
+  # XP orb clumping behavior.
+  clumps:
+    enabled: true
+    merge-radius: 4.0
+  # Item despawn control.
+  stop-items-despawn:
+    enabled: false
+    whitelist-important-items-only: true
+  # Dimension management.
+  dimension-control:
+    enabled: false
+    overworld-enabled: true
+    nether-enabled: true
+    end-enabled: true
+  # Health indicator policies.
+  health-indicators:
+    disable-third-party: false
+    block-external: false
+    cleanup-interval-seconds: 30
+    builtin:
+      enabled: false
+      show-hearts: true
+      actionbar-format: "&c%target% &7-> &f%health%"
+  # Infinite restock toggle.
+  infinite-restock:
+    enabled: false
+  # Extended combat system hooks.
+  combat-system:
+    enabled: false
+  # Extra custom recipe packs.
+  custom-recipes:
+    extra-pack:
+      enabled: false
+    allow-imports: false
+  # Anti xray signal hooks.
+  anti-xray:
+    enabled: false
+    alert-on-suspicious-mining: false
+    window-seconds: 300
+    min-total-breaks: 120
+    min-ore-breaks: 10
+    ratio-threshold: 0.08
+    alert-cooldown-seconds: 120
+    punish-enabled: false
+    punish-command: "kick %player% Suspicious X-Ray activity (%ratio%% ore ratio)"
+    monitored-ores:
+      - DIAMOND_ORE
+      - DEEPSLATE_DIAMOND_ORE
+      - EMERALD_ORE
+      - DEEPSLATE_EMERALD_ORE
+      - ANCIENT_DEBRIS
+  # Anti minimap soft rules.
+  anti-xaero-minimap:
+    enabled: false
+    punish-mode: "WARN" # WARN or KICK
+    notify-staff: true
+    check-on-join: true
+    block-channel-registration: true
+    warn-message: "&cXaero Minimap/WorldMap is not allowed on this server."
+    kick-message: "&cDisallowed minimap mod detected."
+  # Optional string duper compatibility.
+  string-duper-revival:
+    enabled: false
+    check-neighbors: true
+    drop-per-trigger: 1
+  # Spectator behavior after death.
+  spectator-after-death:
+    enabled: false
+    keep-inventory: false
+    auto-respawn: false
+  # First join kit options.
+  first-join-kit:
+    enabled: false
+    give-once: true
+    clear-default-items: false
+    announce: false
+    items:
+      - "STONE_SWORD:1"
+      - "BREAD:16"
+      - "COOKED_BEEF:16"
+  # Villager protection rules.
+  villager-protection:
+    enabled: false
+    prevent-player-kill: false
+    prevent-zombie-convert: false
+  # Admin pvp switch behavior.
+  pvp-switch:
+    allow-admin-toggle: true
+    announce-changes: true
+  # Performance helpers.
+  performance:
+    merge-item-stacks: false
+    merge-radius: 3.5
